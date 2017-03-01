@@ -73,6 +73,7 @@ function onClick(evt) {
 			break;
 		case "del":
 			delOnClick();
+			break;
 		case "vname":
 			nodeRename();
 	}
@@ -125,6 +126,9 @@ function drawVertex(vtx) {
 	c.strokeStyle = vProps.bColour;
 	c.lineWidth = vProps.bThickness;
 	c.stroke();
+	c.font = "15px Arial";
+	c.fillStyle = 'black';
+	c.fillText(vtx.name,vtx.x-vProps.r,vtx.y-(15+vProps.r));
 }
 
 function drawLine(orig, dest) {
@@ -333,4 +337,13 @@ function inEdgeSet(edge) {
 		}
 	}
 	return false;
+}
+
+//Renaming a node
+function nodeRename(){
+	if(selected==-1) return;
+	//placeholder code, need to find a better way to read names
+	var newName=prompt("Enter a new name","");
+	vtcs[selected].name=newName;
+	refreshCanvas();
 }
