@@ -4,6 +4,7 @@ function Node(xPos,yPos){
 	this.y=yPos;
 	this.col=vProps.fColour;
 	this.name="";
+	this.neighbours=[];
 
 	/*Slowly moving a node 
 	  Usage: node.move(milliseconds,new X position, new Y position)

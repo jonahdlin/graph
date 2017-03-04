@@ -94,12 +94,23 @@ function delOnClick() {
 			if (edges[i].v1 > selected) { edges[i].v1 -= 1; }
 			if (edges[i].v2 > selected) { edges[i].v2 -= 1; }
 		}
+		//remove the node from the 'list of neighbours' of all of its neighbours
+		for(var i=0;i<vtcs[selected].neighbours.length;i++){
+			var indexToRemove=vtcs[selected].neighbours[i].neighbours.indexOf(vtcs[selected]);
+			vtcs[selected].neighbours[i].neighbours.splice(indexToRemove,1);
+		}
 		vtcs.splice(selected, 1);
 	} else {
 		var lineClick = onEdge(curCoords, 8);
 		//console.log(lineClick);
 		//console.log(edges);
 		if (lineClick != -1) {
+			var nodeToRemove1=edges[lineClick].v1;
+			var nodeToRemove2=edges[lineClick].v2;
+			var indexToRemove1=vtcs[nodeToRemove1].neighbours.indexOf(vtcs[nodeToRemove2]);
+			var indexToRemove2=vtcs[nodeToRemove2].neighbours.indexOf(vtcs[nodeToRemove1]);
+			vtcs[nodeToRemove1].neighbours.splice(indexToRemove1,1);
+			vtcs[nodeToRemove2].neighbours.splice(indexToRemove1,2);
 			edges.splice(lineClick, 1);
 		}
 	}
@@ -131,6 +142,8 @@ function edgeEndClick() {
 	var new_selected = inVertex(curCoords);
 	if (new_selected != -1 && new_selected != selected) {
 		var new_edge = new Edge(selected,new_selected);
+		vtcs[selected].neighbours.push(vtcs[new_selected]);
+		vtcs[new_selected].neighbours.push(vtcs[selected]);
 		if (!inEdgeSet(new_edge)) {
 			edges.push(new_edge);
 		}
@@ -159,8 +172,6 @@ function deleteConnectedEdges(vtx_id) {
 	}
 }
 
-
-
 //Renaming a node
 function nodeRename(){
 	if(selected==-1) return;
@@ -169,4 +180,57 @@ function nodeRename(){
 	if(newName==null) return;
 	vtcs[selected].name=newName;
 	refreshCanvas();
+}
+
+//Find a bipartition, if one is found, reorganize graph to clearly display it
+function bipartition(){
+	Avtc = []
+	Bvtc = []
+	if(vtcs.length == 0) return //guard against empty graphs
+	var seed=vtcs[0];
+	Avtc.push(seed);
+	addToA=false; //where the next batch of vertices should be added
+
+	//Create complete partitions of A and B
+	while(Avtc.concat(Bvtc).length!=vtcs.length){
+		if(addToA){
+			for(var i=0;i<Bvtc.length;i++){
+				var curr=Bvtc[i];
+				for(var j=0;j<curr.neighbours.length;j++){
+					if(!inVertexSet(curr.neighbours[j],Avtc)){
+						Avtc.push(curr.neighbours[j]);
+					}
+				}
+			}
+			addToA=!addToA;
+		}else{
+			for(var i=0;i<Avtc.length;i++){
+				var curr=Avtc[i];
+				for(var j=0;j<curr.neighbours.length;j++){
+					if(!inVertexSet(curr.neighbours[j],Bvtc)){
+						Bvtc.push(curr.neighbours[j]);
+					}
+				}
+			}
+			addToA=!addToA;
+		}
+	}
+
+	//Check to see if partitions are actually bipartite
+	for(var i=0;i<vtcs.length;i++){
+		var curr=vtcs[i];
+		for(var j=0;j<curr.neighbours.length;j++){
+			var neighbour=curr.neighbours[j];
+			if( (inVertexSet(curr,Avtc) && inVertexSet(neighbour,Avtc)) ||
+				(inVertexSet(curr,Bvtc) && inVertexSet(neighbour,Bvtc))){
+				console.log("NOT BIPARRITE");
+				return;
+			}
+		}
+	}
+
+	//Move vertices to show bipartism
+
+	console.log("Avtc=",Avtc);
+	console.log("Bvtc=",Bvtc);
 }

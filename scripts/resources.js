@@ -59,3 +59,11 @@ function inEdgeSet(edge) {
 	}
 	return false;
 }
+
+//returns true if vertex is in an array already
+function inVertexSet(vertex,array){
+	for(var i = 0;i<array.length;i++){
+		if(vertex==array[i]) return true;
+	}
+	return false;
+}
