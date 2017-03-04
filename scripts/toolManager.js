@@ -186,13 +186,20 @@ function nodeRename(){
 function bipartition(){
 	Avtc = []
 	Bvtc = []
-	if(vtcs.length == 0) return //guard against empty graphs
+	edgedNodes = []
+
+	for(var i=0;i<vtcs.length;i++){
+		var curr=vtcs[i];
+		if(curr.neighbours.length!=0) edgedNodes.push(curr);
+	}
+
+	if(vtcs.length == 0 || edgedNodes.length==0) return; //guard against weird edge cases
 	var seed=vtcs[0];
 	Avtc.push(seed);
 	addToA=false; //where the next batch of vertices should be added
 
 	//Create complete partitions of A and B
-	while(Avtc.concat(Bvtc).length!=vtcs.length){
+	while(Avtc.concat(Bvtc).length!=edgedNodes.length){
 		if(addToA){
 			for(var i=0;i<Bvtc.length;i++){
 				var curr=Bvtc[i];
@@ -217,8 +224,8 @@ function bipartition(){
 	}
 
 	//Check to see if partitions are actually bipartite
-	for(var i=0;i<vtcs.length;i++){
-		var curr=vtcs[i];
+	for(var i=0;i<edgedNodes.length;i++){
+		var curr=edgedNodes[i];
 		for(var j=0;j<curr.neighbours.length;j++){
 			var neighbour=curr.neighbours[j];
 			if( (inVertexSet(curr,Avtc) && inVertexSet(neighbour,Avtc)) ||
@@ -230,7 +237,18 @@ function bipartition(){
 	}
 
 	//Move vertices to show bipartism
-
+	//For laziness I will assume vertices will go only in two straight vertical lines
+	var thirdWidth=window.innerWidth*0.8/3;
+	var height=50;
+	for(var i=0;i<Avtc.length;i++){
+		Avtc[i].move(2000,thirdWidth,height);
+		height+=4*vProps.r;
+	}
+	height=50;
+	for(var i=0;i<Bvtc.length;i++){
+		Bvtc[i].move(2000,2*thirdWidth,height);
+		height+=4*vProps.r;
+	}
 	console.log("Avtc=",Avtc);
 	console.log("Bvtc=",Bvtc);
 }
