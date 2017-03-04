@@ -47,5 +47,7 @@ window.onload = function(){
 	c = canvas.getContext("2d");
 	canvas.addEventListener("mousedown", onClick, false);
 	canvas.addEventListener("mouseup", endClick, false);
+	canvas.setAttribute("height",window.innerHeight*0.8);
+	canvas.setAttribute("width",window.innerWidth*0.8);
 	clearCanvas();
 };

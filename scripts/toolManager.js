@@ -66,7 +66,7 @@ function nodeEndClick() {
 		dragging = false;
 		canvas.onmousemove = null;
 	} else {
-		var new_v =  new node(curCoords.x,curCoords.y);
+		var new_v =  new Node(curCoords.x,curCoords.y);
 		vtcs.push(new_v);
 	}
 	//console.log("Released at: (", curCoords.x, ",", curCoords.y, ")");
@@ -130,7 +130,7 @@ function edgeEndClick() {
 	//console.log(curCoords);
 	var new_selected = inVertex(curCoords);
 	if (new_selected != -1 && new_selected != selected) {
-		var new_edge = new edge(selected,new_selected);
+		var new_edge = new Edge(selected,new_selected);
 		if (!inEdgeSet(new_edge)) {
 			edges.push(new_edge);
 		}

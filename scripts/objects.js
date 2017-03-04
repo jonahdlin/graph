@@ -1,5 +1,5 @@
 /* Object Definitions */
-function node(xPos,yPos){
+function Node(xPos,yPos){
 	this.x=xPos;
 	this.y=yPos;
 	this.col=vProps.fColour;
@@ -27,7 +27,7 @@ function node(xPos,yPos){
 
 }
 
-function edge(v1,v2){
+function Edge(v1,v2){
 	this.v1=v1;
 	this.v2=v2;
 }
