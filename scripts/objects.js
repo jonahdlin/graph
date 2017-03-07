@@ -5,6 +5,7 @@ function Node(xPos,yPos){
 	this.col=vProps.fColour;
 	this.name="";
 	this.neighbours=[];
+	this.coloring="";
 
 	/*Slowly moving a node 
 	  Usage: node.move(milliseconds,new X position, new Y position)
@@ -14,7 +15,6 @@ function Node(xPos,yPos){
 		var frameRate=10;
 		var xDisplacement=xPos-myself.x;
 		var yDisplacement=yPos-myself.y;
-		console.log(xDisplacement+" "+yDisplacement);
 		var tickCount=time/frameRate;
 		var timer=setInterval(function(){
 			myself.x+=xDisplacement/tickCount;
