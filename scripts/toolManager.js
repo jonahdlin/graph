@@ -202,6 +202,10 @@ function bipartition(){
 			}
 		}
 		if(!bipartitionRecurse(seed,"A",Avtc,Bvtc)){
+			document.getElementById("bipartiteButton").style.webkitAnimationPlayState = "running";
+			setTimeout(function(){
+				document.getElementById("bipartiteButton").style.webkitAnimationPlayState = "paused";
+			},1500);
 			console.log("NOT BIPARTITE");
 			return;
 		}

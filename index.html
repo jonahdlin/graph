@@ -18,12 +18,12 @@
 
 	<div class="pageHeader"></div>
 	<div class="optionsContainer">
-		<button class="clearButton" onclick="clearCanvas()">Clear</button>
-		<button class="nodeButton" onclick="selectTool('node')">Manipulate Nodes</button>
-		<button class="nodeDelButton" onclick="selectTool('del')">Delete</button>
-		<button class="edgeButton" onclick="selectTool('edge')">Manipulate Edges</button>
-		<button class="renameButton" onclick="selectTool('vname')">Rename Nodes</button>
-		<button class="bipartiteButton" onclick="bipartition()">Find Bipartition</button>
+		<button id="clearButton" onclick="clearCanvas()">Clear</button>
+		<button id="nodeButton" onclick="selectTool('node')">Manipulate Nodes</button>
+		<button id="nodeDelButton" onclick="selectTool('del')">Delete</button>
+		<button id="edgeButton" onclick="selectTool('edge')">Manipulate Edges</button>
+		<button id="renameButton" onclick="selectTool('vname')">Rename Nodes</button>
+		<button id="bipartiteButton" onclick="bipartition()">Find Bipartition</button>
 	</div>
 	<canvas id="mainCanvas" width="800", height="800">
 		Get Chrome pls.

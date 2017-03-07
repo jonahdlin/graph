@@ -30,8 +30,15 @@ button {
 	height: 40px;
 }
 
-.clearButton {
+#clearButton {
 	background-color: red;
+}
+
+#bipartiteButton{
+	animation-name:redflash;
+    animation-duration:1.5s;
+    animation-iteration-count:infinite;
+    animation-play-state:paused;
 }
 
 #mainCanvas {
@@ -42,3 +49,8 @@ button {
 .customizationMenu {
 	
 }
+
+@keyframes redflash{
+    50%  {background-color: red;}
+}
+
