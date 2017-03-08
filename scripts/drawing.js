@@ -22,15 +22,15 @@ function refreshCanvas() {
 // creates the specified vertex
 function drawVertex(vtx) {
 	c.beginPath();
-	c.arc(vtx.x, vtx.y, vProps.r, 0, 2*Math.PI);
+	c.arc(vtx.x, vtx.y, vtx.r, 0, 2*Math.PI);
 	c.fillStyle = vtx.col;
 	c.fill();
-	c.strokeStyle = vProps.bColour;
-	c.lineWidth = vProps.bThickness;
+	c.strokeStyle = vtx.bcol;
+	c.lineWidth = vtx.bThickness;
 	c.stroke();
 	c.font = "15px Arial";
 	c.fillStyle = 'black';
-	c.fillText(vtx.name,vtx.x-vProps.r,vtx.y-(15+vProps.r));
+	c.fillText(vtx.name,vtx.x-vtx.r,vtx.y-(15+vtx.r));
 }
 
 function drawLine(orig, dest) {

@@ -213,16 +213,16 @@ function bipartition(){
 
 	//Move vertices to show bipartism
 	//For laziness I will assume vertices will go only in two straight vertical lines
-	var thirdWidth=window.innerWidth*0.8/3;
-	var height=50;
+	var yPos=50;
+	var xPos=window.innerWidth*0.8/3;
 	for(var i=0;i<Avtc.length;i++){
-		Avtc[i].move(2000,thirdWidth,height);
-		height+=4*vProps.r;
+		Avtc[i].move(2000,xPos,yPos);
+		yPos+=4*vProps.r;
 	}
-	height=50;
+	yPos=50;
 	for(var i=0;i<Bvtc.length;i++){
-		Bvtc[i].move(2000,2*thirdWidth,height);
-		height+=4*vProps.r;
+		Bvtc[i].move(2000,2*xPos,yPos);
+		yPos+=4*vProps.r;
 	}
 	console.log("Avtc=",Avtc);
 	console.log("Bvtc=",Bvtc);

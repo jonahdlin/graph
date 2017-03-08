@@ -67,3 +67,8 @@ function inVertexSet(vertex,array){
 	}
 	return false;
 }
+
+//returns true if given numbers are within a certain range of each other
+function withinRange(one,two,range){
+	return Math.abs((one-two))<=range;
+}

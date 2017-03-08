@@ -2,7 +2,10 @@
 function Node(xPos,yPos){
 	this.x=xPos;
 	this.y=yPos;
-	this.col=vProps.fColour;
+	this.r=20;
+	this.bThickness=1;
+	this.bcol="black";
+	this.col="#FF383F";
 	this.name="";
 	this.neighbours=[];
 	this.coloring="";
@@ -20,15 +23,14 @@ function Node(xPos,yPos){
 			myself.x+=xDisplacement/tickCount;
 			myself.y+=yDisplacement/tickCount;
 			refreshCanvas();
+			if(withinRange(myself.x,xPos,0.1) && withinRange(myself.y,yPos,1)) clearInterval(timer);
 		},frameRate);
-		var stopTimer=setTimeout(function(){
-			clearInterval(timer);
-		},time);
 	}
-
 }
 
 function Edge(v1,v2){
 	this.v1=v1;
 	this.v2=v2;
+	this.thickness=2;
+	this.colour="#A9A9A9";
 }
