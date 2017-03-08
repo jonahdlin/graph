@@ -5,7 +5,7 @@ Vertex/edge recognition
 // currently O(n), can later make O(logn)
 function inVertex(coords) {
 	for (var i = vtcs.length - 1; i >= 0; i--) {
-		if (Math.sqrt(Math.pow((coords.x - vtcs[i].x), 2) + Math.pow((coords.y - vtcs[i].y), 2)) <= vProps.r) {
+		if (Math.sqrt(Math.pow((coords.x - vtcs[i].x), 2) + Math.pow((coords.y - vtcs[i].y), 2)) <= vtcs[i].r) {
 			return i; 
 		}
 	}

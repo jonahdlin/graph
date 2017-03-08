@@ -29,6 +29,7 @@ function Node(xPos,yPos){
 }
 
 function Edge(v1,v2){
+	console.log(v1)
 	this.v1=v1;
 	this.v2=v2;
 	this.thickness=2;

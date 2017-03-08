@@ -21,12 +21,6 @@ var canvas, 			//canvas
 	cProps = {
 		colour: "#EFEFEF"
 	},
-	vProps = {			//vertex properties
-		r: 20,
-		fColour: "#FF383F",
-		bColour: "black",
-		bThickness: 1
-	},
 	eProps = {			//edge properties
 		thickness: 2,
 		colour: "#A9A9A9"
