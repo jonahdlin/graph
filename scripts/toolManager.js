@@ -7,9 +7,11 @@ function selectTool(tool) {
 
 function onClick(evt) {
 	var rect = canvas.getBoundingClientRect();
-	curCoords.x = Math.floor(evt.clientX-rect.left);
-	curCoords.y = Math.floor(evt.clientY-rect.top);
-	//console.log("Clicked for vertex at: (", curCoords.x, ",", curCoords.y, ")");
+	curCoords.x = Math.floor(evt.clientX-rect.left)*canvas.width/rect.width;
+	curCoords.y = Math.floor(evt.clientY-rect.top)*canvas.height/rect.height;
+	console.log("Clicked for vertex at: (", curCoords.x, ",", curCoords.y, ")");
+	console.log("Rect: (", rect.left, ",", rect.top, ")");
+	console.log("EVT: (", evt.clientX, ",", evt.clientY, ")");
 	selected = inVertex(curCoords);
 	//console.log(selected);
 	switch (operation) {
@@ -31,8 +33,8 @@ function endClick(evt) {
 	switch (operation) {
 		case "node":
 			var rect = canvas.getBoundingClientRect();
-			curCoords.x = Math.floor(evt.clientX-rect.left);
-			curCoords.y = Math.floor(evt.clientY-rect.top);
+			curCoords.x = Math.floor(evt.clientX-rect.left)*canvas.width/rect.width;
+			curCoords.y = Math.floor(evt.clientY-rect.top)*canvas.height/rect.height;
 			nodeEndClick();
 			break;
 		case "edge":
@@ -53,8 +55,8 @@ function moveNode(evt) {
 	if (dragging) {
 		var rect = canvas.getBoundingClientRect();
 		curCoords = {
-			x: evt.clientX-rect.left,
-			y: evt.clientY-rect.top
+			x: (evt.clientX-rect.left)*canvas.width/rect.width,
+			y: (evt.clientY-rect.top)*canvas.height/rect.height
 		};
 		//console.log("Currently at: (", curCoords.x, ",", curCoords.y, ")");
 		animateVertex(selected, curCoords);
@@ -123,8 +125,8 @@ function moveEdge(evt) {
 	if (edgeMaking) {
 		var rect = canvas.getBoundingClientRect();
 		curCoords = {
-			x: evt.clientX-rect.left,
-			y: evt.clientY-rect.top
+			x: (evt.clientX-rect.left)*canvas.width/rect.width,
+			y: (evt.clientY-rect.top)*canvas.height/rect.height
 		};
 		//console.log("Currently at: (", curCoords.x, ",", curCoords.y, ")");
 		animateLine(currEdge, curCoords);

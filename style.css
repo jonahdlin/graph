@@ -11,6 +11,7 @@ html, body {
 	width: 100%;
 	height: 100%;
 	margin: 0;
+	padding: 0%;
 	font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -20,14 +21,103 @@ button {
 	display: flex;
 	justify-content: center;
 	height: 30px;
-	width: 150px;
+	width: 100px;
 	border: 1px solid black;
 	font-weight: bold;
 	float: left;
 }
 
-.optionsMenu {
-	height: 40px;
+.outerMenuContainer {
+	height: 150px;
+	width: 550px;
+	background-color: green;
+	display: flex;
+}
+
+.innerMenuContainer {
+	height: 100%;
+	width: 93%;
+	z-index: 2;
+
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+.toolBoxContainer {
+	height: 80%;
+	width: 100%;
+}
+
+.toolBox {
+	height: 100%;
+	width: 100%;
+	background-color: yellow;
+	justify-content: space-around;
+	align-items: center;
+}
+
+#vertexTools {
+	background-color: #6EC4D8;
+}
+
+#edgeTools {
+	background-color: #FA7C92;
+}
+
+#graphTools {
+	background-color: #66AB8C;
+}
+
+.toolTabContainer {
+	width: 100%;
+	height: 20%;
+	position: relative;
+	z-index: 2;
+	display: flex;
+	justify-content: space-around;
+}
+
+.toolTab {
+	width: 30%;
+	height: 100%;
+	border-radius: 0 0 3px 3px;
+	/*border-bottom: 1px solid black;
+	border-left: 1px solid black;
+	border-right: 1px solid black; */
+	box-shadow: 1px 1px 2px #707070;
+	position: relative;
+	text-align: center;
+	padding-top: 5px;
+}
+
+#vertexTab {
+	background-color: #6EC4D8;
+}
+
+#edgeTab {
+	background-color: #FA7C92;
+}
+
+#graphTab {
+	background-color: #66AB8C;
+}
+
+.toggleMenuButtonContainer {
+	width: 7%;
+	height: 100%;
+
+	z-index: 2;
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.toggleMenuButton {
+	height: 40%;
+	width: 40%;
+	background-color: orange;
+	align-self: middle;
 }
 
 #clearButton {
@@ -42,12 +132,11 @@ button {
 }
 
 #mainCanvas {
-	margin-left: 40px;
-	margin-top: 15px;
-}
-
-.customizationMenu {
-	
+	margin-top: -150px;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 1;
 }
 
 @keyframes redflash{
