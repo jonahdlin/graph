@@ -231,6 +231,7 @@ function bipartition(){
 	}
 	yPos=2*Avtc[0].r;
 	xPos=2*canvasWidth/3;
+	shortStart=false;
 	for(var i=0;i<Bvtc.length;i++){
 		if(yPos>canvasHeight-Bvtc[i].r){
 			yPos=2*Avtc[0].r;
