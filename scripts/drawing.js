@@ -39,7 +39,23 @@ function drawLine(edge){
 	c.lineTo(vtcs[edge.v2].x, vtcs[edge.v2].y);
 	c.strokeStyle = edge.colour;
 	c.lineWidth = edge.thickness;
+	drawValue(edge);
 	c.stroke();
+}
+
+//calculates and draws the 'value' field of an edge
+function drawValue(edge){
+	if(isNaN(edge.value)) return;
+	c.foint = "15px Arial";
+	c.fillStyle = 'black';
+	var v1=vtcs[edge.v1];
+	var v2=vtcs[edge.v2];
+	var xPos=(v1.x+v2.x)/2;
+	var yPos=(v1.y+v2.y)/2;
+	var perpendicularSlope=-xPos/yPos;
+	xPos+=5;
+	yPos+=5*perpendicularSlope;
+	c.fillText(edge.value,xPos,yPos);
 }
 
 function animateVertex(vtx, dest) {

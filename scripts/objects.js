@@ -34,4 +34,5 @@ function Edge(v1,v2){
 	this.v2=v2;
 	this.thickness=2;
 	this.colour="#A9A9A9";
+	this.value;
 }

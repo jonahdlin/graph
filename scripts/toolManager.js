@@ -26,6 +26,11 @@ function onClick(evt) {
 			break;
 		case "vname":
 			nodeRename();
+			break;
+		case "evalue":
+			console.log("HI");
+			addEdgeValue();
+			break;
 	}
 }
 
@@ -253,8 +258,17 @@ function bipartitionRecurse(node,thisColor,Avtc,Bvtc){
 	var didItWork=true;
 	for(var i=0;i<node.neighbours.length;i++){
 		if(thisColor=="A" && node.neighbours[i].coloring=="") didItWork=didItWork && bipartitionRecurse(node.neighbours[i],"B",Avtc,Bvtc);
-		if(thisColor=="B"&& node.neighbours[i].coloring=="") didItWork=didItWork && bipartitionRecurse(node.neighbours[i],"A",Avtc,Bvtc);
+		if(thisColor=="B" && node.neighbours[i].coloring=="") didItWork=didItWork && bipartitionRecurse(node.neighbours[i],"A",Avtc,Bvtc);
 		if(thisColor==node.neighbours[i].coloring) return false;
 	}
 	return didItWork;
+}
+
+function addEdgeValue(){
+	var lineClick = onEdge(curCoords, 8);
+	if(lineClick==-1) return;
+	var value=prompt("Enter a new value","");
+	if(isNaN(value)) return;
+	edges[lineClick].value=value;
+	refreshCanvas();
 }

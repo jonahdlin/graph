@@ -25,6 +25,6 @@ function toolBoxChange(newTab) {
 
 $(document).ready(function(){
 	$(".toggleMenuButton").click(function(){
-		$(".innerMenuContainer").animate({width: 'toggle'});
+		$(".outerMenuContainer").animate({width: 'toggle'});
 	});
 });

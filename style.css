@@ -32,6 +32,8 @@ button {
 	width: 550px;
 	background-color: green;
 	display: flex;
+	z-index: 2;
+	position: fixed;
 }
 
 .innerMenuContainer {
@@ -131,6 +133,11 @@ button {
 #mainCanvas {
 	position: absolute;
 	z-index: 1;
+	-moz-user-select: -moz-none;
+ 	-khtml-user-select: none;
+ 	-webkit-user-select: none;
+	-o-user-select: none;
+	user-select: none;
 }
 
 @keyframes redflash{
