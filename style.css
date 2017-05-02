@@ -30,16 +30,17 @@ button {
 .outerMenuContainer {
 	height: 150px;
 	width: 550px;
-	background-color: green;
 	display: flex;
-	z-index: 2;
+	z-index: 1;
 	position: fixed;
+	pointer-events: none;
 }
 
 .innerMenuContainer {
 	height: 100%;
 	width: 93%;
-	z-index: 2;
+	z-index: 1;
+	pointer-events: auto;
 
 	position: relative;
 	display: flex;
@@ -49,74 +50,105 @@ button {
 .toolBoxContainer {
 	height: 80%;
 	width: 100%;
+	z-index: 1;
 }
 
 .toolBox {
 	height: 100%;
 	width: 100%;
-	background-color: yellow;
 	justify-content: space-around;
 	align-items: center;
+	border: 1px solid #B8C5D6;
+	border-top: none;
+	border-left: none;
+	z-index: 1;
+	box-sizing: content-box;
 }
 
 #vertexTools {
-	background-color: #6EC4D8;
+	background-color: #30BCED;
 }
 
 #edgeTools {
-	background-color: #FA7C92;
+	background-color: #DB5461;
 }
 
 #graphTools {
-	background-color: #66AB8C;
+	background-color: #5FAD56;
 }
 
 .toolTabContainer {
 	width: 100%;
 	height: 20%;
 	position: relative;
-	z-index: 2;
 	display: flex;
 	justify-content: space-around;
+	pointer-events: none;
 }
 
 .toolTab {
 	width: 30%;
 	height: 100%;
 	border-radius: 0 0 3px 3px;
-	box-shadow: 1px 1px 2px #707070;
+	/*box-shadow: 1px 1px 2px #707070;*/
 	position: relative;
 	text-align: center;
 	padding-top: 5px;
+
+	border: 1px solid #B8C5D6;
+	border-top: none;
+
+	pointer-events: auto;
+
+	cursor: pointer;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #vertexTab {
-	background-color: #6EC4D8;
+	background-color: #30BCED;
+	z-index: 2;
 }
 
 #edgeTab {
-	background-color: #FA7C92;
+	background-color: #DB5461;
+	z-index: 0;
 }
 
 #graphTab {
-	background-color: #66AB8C;
+	background-color: #5FAD56;
+	z-index: 0;
 }
 
 .toggleMenuButtonContainer {
 	width: 7%;
 	height: 100%;
 
-	z-index: 2;
+	z-index: 1;
 	position: relative;
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 }
 
 .toggleMenuButton {
-	height: 40%;
-	width: 40%;
-	background-color: orange;
+	height: 25%;
+	width: 90%;
+	/*background-color: orange;*/
+	/*align-self: middle;*/
+	pointer-events: auto;
+	display: flex;
+	padding-top: 4px;
+	padding-left: 4px;
+}
+
+.toggleMenuButton img {
 	align-self: middle;
+	max-height: 100%;
+	max-width: 100%;
 }
 
 #clearButton {
@@ -132,7 +164,7 @@ button {
 
 #mainCanvas {
 	position: absolute;
-	z-index: 1;
+	z-index: 0;
 	-moz-user-select: -moz-none;
  	-khtml-user-select: none;
  	-webkit-user-select: none;

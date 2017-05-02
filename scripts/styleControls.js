@@ -15,16 +15,18 @@ function toolBoxChange(newTab) {
 		var currTab = document.getElementById(tools[i]+"Tab");
 		var currBox = document.getElementById(tools[i]+"Tools");
 		currBox.style.display = "none";
+		currTab.style.zIndex = "0";
 	}
 
 	var tabToChange = document.getElementById(newTab+"Tab");
 	var boxToChange = document.getElementById(newTab+"Tools");
 
 	boxToChange.style.display = "flex";
+	tabToChange.style.zIndex = "2";
 }
 
 $(document).ready(function(){
 	$(".toggleMenuButton").click(function(){
-		$(".outerMenuContainer").animate({width: 'toggle'});
+		$(".innerMenuContainer").animate({width: 'toggle'});
 	});
 });
