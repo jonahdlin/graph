@@ -231,7 +231,7 @@ function bipartition(){
 			if(shortStart) yPos+=Avtc[0].r;
 			xPos-=4*Avtc[i].r;
 		}
-		Avtc[i].move(2000,xPos,yPos);
+		Avtc[i].move(500,xPos,yPos);
 		yPos+=4*Avtc[i].r;
 	}
 	yPos=2*Avtc[0].r;
@@ -244,7 +244,7 @@ function bipartition(){
 			if(shortStart) yPos+=Avtc[0].r;
 			xPos+=4*Bvtc[i].r;
 		}
-		Bvtc[i].move(2000,xPos,yPos);
+		Bvtc[i].move(500,xPos,yPos);
 		yPos+=4*Bvtc[i].r;
 	}
 	console.log("Avtc=",Avtc);

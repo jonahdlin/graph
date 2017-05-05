@@ -226,6 +226,7 @@ button:active {
 	align-self: middle;
 	max-height: 100%;
 	max-width: 100%;
+	cursor: pointer;
 }
 
 .wasteContainer { /* should be fixed at some point */
@@ -253,6 +254,8 @@ button:active {
  	-webkit-user-select: none;
 	-o-user-select: none;
 	user-select: none;
+
+	cursor: default;
 }
 
 @keyframes redflash{
