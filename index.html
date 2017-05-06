@@ -22,41 +22,33 @@
 		<div class="innerMenuContainer">
 			<div class="toolBoxContainer">
 				<div class="toolBox" id="vertexTools">
-					<div class="toolButton threeoneButton" title="Create or move vertices" id="nodeButton" onclick="selectTool('node')">
-						<!-- <img title="Create or move vertices" src="resources/add.png" /> -->
-						Move/Create
+					<div class="toolButton squareButton" id="nodeButton" onclick="selectTool('node')">
+						<img title="Create or move vertices" src="resources/addmove.png" />
 					</div>
-					<div class="toolButton twooneButton" title="Rename vertices" id="renameButton" onclick="selectTool('vname')">
-						<!-- <img title="Rename vertices" src="resources/subtract.png" /> -->
-						Rename
+					<div class="toolButton squareButton" id="renameButton" onclick="selectTool('vname')">
+						<img title="Rename vertices" src="resources/name.png" />
 					</div>
-					<div class="toolButton twooneButton" title="Delete vertices or edges" id="nodeDelButton" onclick="selectTool('del')">
-						<!-- <img title="Delete vertices or edges" src="resources/add.png" /> -->
-						Delete
+					<div class="toolButton squareButton" id="nodeDelButton" onclick="selectTool('del')">
+						<img title="Delete vertices or edges" src="resources/delete.png" />
 					</div>
 				</div>
 				<div class="toolBox" id="edgeTools">
-					<div class="toolButton twooneButton" title="Create edges" id="edgeButton" onclick="selectTool('edge')">
-						<!-- <img title="Create edges" src="resources/add.png" /> -->
-						Create
+					<div class="toolButton squareButton" id="edgeButton" onclick="selectTool('edge')">
+						<img title="Create edges" src="resources/addedge.png" />
 					</div>
-					<div class="toolButton twooneButton" title="Give an edge a value" id="valueButton" onclick="selectTool('evalue')">
-						<!-- <img title="Give an edge a value" src="resources/add.png" /> -->
-						Value
+					<div class="toolButton squareButton" id="valueButton" onclick="selectTool('evalue')">
+						<img title="Give an edge a value" src="resources/value.png" />
 					</div>
-					<div class="toolButton twooneButton" title="Delete vertices or edges" id="nodeDelButton" onclick="selectTool('del')">
-						<!-- <img title="Delete vertices or edges" src="resources/add.png" /> -->
-						Delete
+					<div class="toolButton squareButton" id="nodeDelButton" onclick="selectTool('del')">
+						<img title="Delete vertices or edges" src="resources/delete.png" />
 					</div>
 				</div>
 				<div class="toolBox" id="graphTools">
-					<div class="toolButton threeoneButton" title="Find a bipartition" id="bipartiteButton" onclick="bipartition()">
-						<!-- <img title="Find a bipartition" src="resources/add.png" /> -->
-						Bipartition
+					<div class="toolButton squareButton" id="bipartiteButton" onclick="bipartition()">
+						<img title="Find a bipartition" src="resources/bipartition.png" />
 					</div>
-					<div class="toolButton twooneButton" title="Clear the graph" id="clearButton" onclick="clearCanvas()">
-						<!-- <img title="Clear the graph" src="resources/add.png" /> -->
-						Clear
+					<div class="toolButton squareButton" id="clearButton" onclick="clearCanvas()">
+						<img title="Clear the graph" src="resources/clear.png" />
 					</div>
 				</div>
 			</div>

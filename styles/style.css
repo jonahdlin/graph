@@ -45,6 +45,8 @@ html, body {
 	height: 100%;
 	width: 100%;
 
+	display: flex;
+	justify-content: space-around;
 	align-items: center;
 	border: 2px solid #B8C5D6;
 	border-top: none;
@@ -60,10 +62,12 @@ html, body {
 	justify-content: center;
 /*	height: 30px;
 	width: 100px;*/
-	height: 40%;
+	height: 50%;
 	border: 1px solid black;
 	padding: 0;
 	font-weight: bold;
+
+	background-color: #B8C5D6;
 
 	cursor: pointer;
 	-webkit-touch-callout: none;
@@ -91,14 +95,6 @@ html, body {
 .toolButton img {
 	max-height: 100%;
 	max-width: 100%;
-}
-
-.squareButton {
-	height: 40%;
-}
-
-.twooneButton {
-	height: 40%;
 }
 
 /* Add this attribute to the element that needs a tooltip */
@@ -303,10 +299,6 @@ html, body {
 	height: auto;
 	width: 100%;
 	pointer-events: none; 
-}
-
-#clearButton {
-	background-color: red;
 }
 
 #bipartiteButton{
