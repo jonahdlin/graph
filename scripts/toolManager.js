@@ -28,7 +28,6 @@ function onClick(evt) {
 			nodeRename();
 			break;
 		case "evalue":
-			console.log("HI");
 			addEdgeValue();
 			break;
 	}
@@ -183,11 +182,7 @@ function deleteConnectedEdges(vtx_id) {
 //Renaming a node
 function nodeRename(){
 	if(selected==-1) return;
-	//placeholder code, need to find a better way to read names
-	var newName=prompt("Enter a new name","");
-	if(newName==null) return;
-	vtcs[selected].name=newName;
-	refreshCanvas();
+	createInputBox(vtcs[selected],1);
 }
 
 //Find a bipartition, if one is found, reorganize graph to clearly display it
@@ -267,8 +262,5 @@ function bipartitionRecurse(node,thisColor,Avtc,Bvtc){
 function addEdgeValue(){
 	var lineClick = onEdge(curCoords, 8);
 	if(lineClick==-1) return;
-	var value=prompt("Enter a new value","");
-	if(isNaN(value)) return;
-	edges[lineClick].value=value;
-	refreshCanvas();
+	createInputBox(edges[lineClick],2);
 }

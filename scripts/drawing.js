@@ -73,3 +73,53 @@ function animateLine(orig, dest) {
 	c.lineWidth = eProps.thickness;
 	c.stroke();
 }
+
+function createInputBox(obj,title){
+	var box = document.createElement("div");
+	var boxHeight=50;
+	var boxWidth=100;
+
+	box.style.zIndex="2";
+	box.style.position="absolute";
+	
+	box.style.textAlign="center";
+	box.style.width=boxWidth+"px";
+	box.style.height=boxHeight+"px";
+	box.style.opactiy="0.5";
+	box.style.backgroundColor="#7799ce";
+	box.style.borderRadius="10px";
+	box.style.padding="5px";
+
+	var input = document.createElement("input");
+	input.style.width=boxWidth-10+"px";
+	input.setAttribute("id","derp");
+
+	if(title==1){
+		box.innerHTML="Name?";
+		box.style.left=obj.x+"px";
+		box.style.top=obj.y-50+"px";
+		$(input).keypress(function(e) {
+			if(e.which == 13){
+				obj.name=input.value;
+				document.body.removeChild(box);
+				refreshCanvas();
+			}
+		});
+	}else if(title==2){
+		box.innerHTML="Value?";
+		const v1=vtcs[obj.v1];
+		const v2=vtcs[obj.v2];
+		box.style.left=(v1.x+v2.x)/2+"px";
+		box.style.top=((v1.y+v2.y)/2)-50+"px";
+		$(input).keypress(function(e) {
+			if(e.which == 13){
+				obj.value=input.value;
+				document.body.removeChild(box);
+				refreshCanvas();
+			}
+		});
+	}
+
+	box.appendChild(input);
+	document.body.appendChild(box);
+}
