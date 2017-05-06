@@ -25,6 +25,9 @@ function toolBoxChange(newTab) {
 	tabToChange.style.zIndex = "2";
 }
 
+/*-----------------
+Menu Slider 
+-----------------*/
 $(document).ready(function(){
 	$(".toggleMenuButton").click(function(){
 		$(".innerMenuContainer").animate({width: 'toggle'});
