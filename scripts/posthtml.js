@@ -1,12 +1,17 @@
 /*-----------------
 Button Shape
 -----------------*/
-var sq_h = $('.squareButton').height();
+var sq_h = $('.toolButton').height();
 $('.squareButton').css({
     'width': sq_h + 'px'
 });
 
-var to_h = $('.twooneButton').height();
+var twoone_h = $('.toolButton').height();
 $('.twooneButton').css({
-    'width': 2*to_h + 'px'
+    'width': 2*twoone_h + 'px'
+});
+
+var threeone_h = $('.toolButton').height();
+$('.threeoneButton').css({
+    'width': 3*threeone_h + 'px'
 });
