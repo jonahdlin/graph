@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8" />
-	<link href="style.css" rel="stylesheet" type="text/css" />
+	<link href="styles/style.css" rel="stylesheet" type="text/css" />
 	<link href='http://fonts.googleapis.com/css?family=Josefin+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<link rel="icon" href="resources/graphicon.png">
 
@@ -21,19 +21,43 @@
 	<div class="outerMenuContainer">
 		<div class="innerMenuContainer">
 			<div class="toolBoxContainer">
-				<div class="toolBox" id="vertexTools" style="display: flex;">
-					<button id="nodeButton" onclick="selectTool('node')">Move/Create</button>
-					<button id="renameButton" onclick="selectTool('vname')">Rename</button>
-					<button id="nodeDelButton" onclick="selectTool('del')">Delete</button>
+				<div class="toolBox" id="vertexTools">
+					<div class="toolButton threeoneButton" title="Create or move vertices" id="nodeButton" onclick="selectTool('node')">
+						<!-- <img title="Create or move vertices" src="resources/add.png" /> -->
+						Move/Create
+					</div>
+					<div class="toolButton twooneButton" title="Rename vertices" id="renameButton" onclick="selectTool('vname')">
+						<!-- <img title="Rename vertices" src="resources/subtract.png" /> -->
+						Rename
+					</div>
+					<div class="toolButton twooneButton" title="Delete vertices or edges" id="nodeDelButton" onclick="selectTool('del')">
+						<!-- <img title="Delete vertices or edges" src="resources/add.png" /> -->
+						Delete
+					</div>
 				</div>
-				<div class="toolBox" id="edgeTools" style="display: none;">
-					<button id="edgeButton" onclick="selectTool('edge')">Create</button>
-					<button id="valueButton" onclick="selectTool('evalue')">Value</button>
-					<button id="nodeDelButton" onclick="selectTool('del')">Delete</button>
+				<div class="toolBox" id="edgeTools">
+					<div class="toolButton twooneButton" title="Create edges" id="edgeButton" onclick="selectTool('edge')">
+						<!-- <img title="Create edges" src="resources/add.png" /> -->
+						Create
+					</div>
+					<div class="toolButton twooneButton" title="Give an edge a value" id="valueButton" onclick="selectTool('evalue')">
+						<!-- <img title="Give an edge a value" src="resources/add.png" /> -->
+						Value
+					</div>
+					<div class="toolButton twooneButton" title="Delete vertices or edges" id="nodeDelButton" onclick="selectTool('del')">
+						<!-- <img title="Delete vertices or edges" src="resources/add.png" /> -->
+						Delete
+					</div>
 				</div>
-				<div class="toolBox" id="graphTools" style="display: none;">
-					<button id="bipartiteButton" onclick="bipartition()">Bipartition</button>
-					<button id="clearButton" onclick="clearCanvas()">Clear</button>
+				<div class="toolBox" id="graphTools">
+					<div class="toolButton threeoneButton" title="Find a bipartition" id="bipartiteButton" onclick="bipartition()">
+						<!-- <img title="Find a bipartition" src="resources/add.png" /> -->
+						Bipartition
+					</div>
+					<div class="toolButton twooneButton" title="Clear the graph" id="clearButton" onclick="clearCanvas()">
+						<!-- <img title="Clear the graph" src="resources/add.png" /> -->
+						Clear
+					</div>
 				</div>
 			</div>
 	
@@ -51,5 +75,7 @@
 	</div>
 	<canvas id="mainCanvas">Get Chrome pls.</canvas>
 </body>
+
+<script src="scripts/posthtml.js" type="text/javascript"></script>
 
 </html>
