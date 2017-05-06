@@ -46,7 +46,7 @@ function drawLine(edge){
 //calculates and draws the 'value' field of an edge
 function drawValue(edge){
 	if(isNaN(edge.value)) return;
-	c.foint = "15px Arial";
+	c.font = "15px Arial";
 	c.fillStyle = 'black';
 	var v1=vtcs[edge.v1];
 	var v2=vtcs[edge.v2];
@@ -113,7 +113,7 @@ function createInputBox(obj,title){
 		box.style.top=((v1.y+v2.y)/2)-50+"px";
 		$(input).keypress(function(e) {
 			if(e.which == 13){
-				obj.value=input.value;
+				obj.value=parseInt(input.value);
 				document.body.removeChild(box);
 				refreshCanvas();
 			}
