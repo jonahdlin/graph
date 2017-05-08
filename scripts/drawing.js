@@ -93,33 +93,50 @@ function createInputBox(obj,title){
 	var input = document.createElement("input");
 	input.style.width=boxWidth-10+"px";
 	input.setAttribute("id","derp");
+	//input.setAttribute("onfocusout","submit(this,"+title+")");
+
+	$(input).blur(function(){
+		submit(this,title,obj);
+		refreshCanvas();
+	});
+
+	$(input).keypress(function(e){
+		if(e.which==13){
+			this.blur();
+		}
+	});
 
 	if(title==1){
 		box.innerHTML="Name?";
 		box.style.left=obj.x+"px";
 		box.style.top=obj.y-50+"px";
-		$(input).keypress(function(e) {
-			if(e.which == 13){
-				obj.name=input.value;
-				document.body.removeChild(box);
-				refreshCanvas();
-			}
-		});
 	}else if(title==2){
 		box.innerHTML="Value?";
 		const v1=vtcs[obj.v1];
 		const v2=vtcs[obj.v2];
 		box.style.left=(v1.x+v2.x)/2+"px";
 		box.style.top=((v1.y+v2.y)/2)-50+"px";
-		$(input).keypress(function(e) {
-			if(e.which == 13){
-				obj.value=parseInt(input.value);
-				document.body.removeChild(box);
-				refreshCanvas();
-			}
-		});
 	}
 
 	box.appendChild(input);
 	document.body.appendChild(box);
+
+	setTimeout(function(){
+		input.focus();
+	},50);
+	//If you're a Software Engineer reading this, I'm sorry. Simply calling focus() doesnt work.
+}
+
+function submit(input,title,obj){
+	if(input.value!=""){
+		switch(title){
+			case 1: //name
+				obj.name=input.value;
+				break;
+			case 2: //value
+				obj.value=input.value;
+				break;
+		}
+	}
+	input.parentElement.parentElement.removeChild(input.parentElement);
 }
