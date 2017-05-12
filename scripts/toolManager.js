@@ -9,9 +9,9 @@ function onClick(evt) {
 	var rect = canvas.getBoundingClientRect();
 	curCoords.x = Math.floor(evt.clientX-rect.left)*canvas.width/rect.width;
 	curCoords.y = Math.floor(evt.clientY-rect.top)*canvas.height/rect.height;
-	console.log("Clicked for vertex at: (", curCoords.x, ",", curCoords.y, ")");
-	console.log("Rect: (", rect.left, ",", rect.top, ")");
-	console.log("EVT: (", evt.clientX, ",", evt.clientY, ")");
+	// console.log("Clicked for vertex at: (", curCoords.x, ",", curCoords.y, ")");
+	// console.log("Rect: (", rect.left, ",", rect.top, ")");
+	// console.log("EVT: (", evt.clientX, ",", evt.clientY, ")");
 	selected = inVertex(curCoords);
 	//console.log(selected);
 	switch (operation) {
@@ -26,6 +26,9 @@ function onClick(evt) {
 			break;
 		case "vname":
 			nodeRename();
+			break;
+		case "vcol":
+			nodeRecolour();
 			break;
 		case "evalue":
 			addEdgeValue();
@@ -183,6 +186,18 @@ function deleteConnectedEdges(vtx_id) {
 function nodeRename(){
 	if(selected==-1) return;
 	createInputBox(vtcs[selected],1);
+}
+
+//Recolouring a node
+function nodeRecolour(){
+	if(selected==-1) return;
+	vtcs[selected].col = curColour;
+	refreshCanvas();
+}
+
+//Change global colouring var (I know, this is dumb)
+function colourUpdate(newCol) {
+	curColour = "#" + newCol;
 }
 
 //Find a bipartition, if one is found, reorganize graph to clearly display it

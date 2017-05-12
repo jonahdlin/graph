@@ -15,6 +15,9 @@
 	<script src="scripts/objects.js" type="text/javascript"></script>
 	<script src="scripts/drawing.js" type="text/javascript"></script>
 	<script src="scripts/styleControls.js" type="text/javascript"></script>
+
+	<script src="scripts/jscolor/jscolor.js"></script>
+
 	<title>Graph</title>
 </head>
 
@@ -23,33 +26,38 @@
 		<div class="innerMenuContainer">
 			<div class="toolBoxContainer">
 				<div class="toolBox" id="vertexTools">
-					<div class="toolButton squareButton" id="nodeButton" onclick="selectTool('node')">
-						<img title="Create or move vertices" src="resources/addmove.png" />
+					<div title="Create or move vertices" class="toolButton squareButton nodeButton" onclick="selectTool('node')">
+						<img src="resources/addmove_bl.png" />
 					</div>
-					<div class="toolButton squareButton" id="renameButton" onclick="selectTool('vname')">
-						<img title="Rename vertices" src="resources/name.png" />
+					<div title="Rename vertices" class="toolButton squareButton" id="renameButton" onclick="selectTool('vname')">
+						<img src="resources/name_bl.png" />
 					</div>
-					<div class="toolButton squareButton" id="nodeDelButton" onclick="selectTool('del')">
-						<img title="Delete vertices or edges" src="resources/delete.png" />
+					<div title="Recolour vertices" class="toolButton squareButton" id="nodeDelButton" onclick="selectTool('vcol')" title="Recolour vertices">
+						<button class="jscolor {valueElement:null, value:'FF383F', closable:true, closeText:'Close', onFineChange:'colourUpdate(this)'} colourInput">
+							<img src="resources/paintbrush.png" />
+						</button>
+					</div>
+					<div title="Delete vertices or edges" class="toolButton squareButton" id="nodeDelButton" onclick="selectTool('del')">
+						<img src="resources/delete_bl.png" />
 					</div>
 				</div>
 				<div class="toolBox" id="edgeTools">
-					<div class="toolButton squareButton" id="edgeButton" onclick="selectTool('edge')">
-						<img title="Create edges" src="resources/addedge.png" />
+					<div title="Create edges" class="toolButton squareButton" id="edgeButton" onclick="selectTool('edge')">
+						<img src="resources/addedge_bl.png" />
 					</div>
-					<div class="toolButton squareButton" id="valueButton" onclick="selectTool('evalue')">
-						<img title="Give an edge a value" src="resources/value.png" />
+					<div title="Give an edge a value" class="toolButton squareButton" id="valueButton" onclick="selectTool('evalue')">
+						<img src="resources/value_bl.png" />
 					</div>
-					<div class="toolButton squareButton" id="nodeDelButton" onclick="selectTool('del')">
-						<img title="Delete vertices or edges" src="resources/delete.png" />
+					<div title="Delete vertices or edges" class="toolButton squareButton" id="nodeDelButton" onclick="selectTool('del')">
+						<img src="resources/delete_bl.png" />
 					</div>
 				</div>
 				<div class="toolBox" id="graphTools">
-					<div class="toolButton squareButton" id="bipartiteButton" onclick="bipartition()">
-						<img title="Find a bipartition" src="resources/bipartition.png" />
+					<div title="Find a bipartition" class="toolButton squareButton" id="bipartiteButton" onclick="bipartition()">
+						<img src="resources/bipartition_bl.png" />
 					</div>
-					<div class="toolButton squareButton" id="clearButton" onclick="clearCanvas()">
-						<img title="Clear the graph" src="resources/clear.png" />
+					<div title="Clear the graph" class="toolButton squareButton" id="clearButton" onclick="clearCanvas()">
+						<img src="resources/clear_bl.png" />
 					</div>
 				</div>
 			</div>

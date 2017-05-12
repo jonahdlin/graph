@@ -31,6 +31,7 @@ var canvas, 			//canvas
 	selected = -1,		//current selected node (-1 if nothing selected)
 	edgeMaking = false,	//is the user making an edge?
 	operation = "node",	//what operation is the user performing?
+	curColour = "#FF383F", //what colour is in the input box
 	currEdge = {		//starting position of current animated edge
 		x: -1,
 		y: -1

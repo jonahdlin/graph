@@ -32,20 +32,4 @@ $(document).ready(function(){
 	$(".toggleMenuButton").click(function(){
 		$(".innerMenuContainer").animate({width: 'toggle'});
 	});
-
-	// this too should be fixed
-	// $(".toolTab").mouseenter(function(){
-	// 	if (this.id !== currentToolBox+"Tab") {
-	// 		if (this.id == "vertexTab") { document.getElementById(this.id).style.backgroundColor = "#238db2"; }
-	// 		if (this.id == "edgeTab") { document.getElementById(this.id).style.backgroundColor = "#993a43"; }
-	// 		if (this.id == "graphTab") { document.getElementById(this.id).style.backgroundColor = "#41773a"; }
-	// 	}
-	// });
-	// $(".toolTab").mouseleave(function(){
-	// 	if (this.id !== currentToolBox+"Tab") {
-	// 		if (this.id == "vertexTab") { document.getElementById(this.id).style.backgroundColor = "#30BCED"; }
-	// 		if (this.id == "edgeTab") { document.getElementById(this.id).style.backgroundColor = "#DB5461"; }
-	// 		if (this.id == "graphTab") { document.getElementById(this.id).style.backgroundColor = "#5FAD56"; }
-	// 	}
-	// });
 });
