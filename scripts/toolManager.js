@@ -283,20 +283,29 @@ function addEdgeValue(){
 function createRandomGraph() {
 	clearCanvas();
 
-	var numberOfNodes = Math.floor(Math.random() * 10) + 5;
+	// Max 10 nodes, min 5
+	var numberOfNodes = Math.floor(Math.random() * 5) + 5;
 	var canvasHeight = $("#mainCanvas").height();
 	var canvasWidth = $("#mainCanvas").width();
 
+	// A bunch of letters
+	var letters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+
+	// Make some nodes
 	for (var i=0; i<numberOfNodes; i++) {
 		var randomXPos = Math.floor(Math.random() * canvasWidth * 0.8) + 100;
 		var randomYPos = Math.floor(Math.random() * canvasHeight * 0.8) + 100;
 		var newVertice = new Node(randomXPos, randomYPos);
+		newVertice.name = letters[i];
 		vtcs.push(newVertice);	
 	}
 
+	// Make some edges
 	for (var i=0; i<vtcs.length; i++) {
 		randomlyCreateEdgesRecursively(i, 0.9);
 	}
+
+
 
 	refreshCanvas();
 }
@@ -308,12 +317,15 @@ function randomlyCreateEdgesRecursively(verticeIndex, probability) {
 			return;
 		}
 
-		let otherVertexIndex = Math.floor(Math.random() * vtcs.length);
+		var otherVertexIndex = Math.floor(Math.random() * vtcs.length);
 		while (verticeIndex === otherVertexIndex || inVertexSet(vtcs[otherVertexIndex], vtcs[verticeIndex].neighbours)) {
 			otherVertexIndex = Math.floor(Math.random() * vtcs.length);
 		}
 
 		var newEdge = new Edge(verticeIndex, otherVertexIndex);
+
+		// Give the newly created edge a value
+		newEdge.value = Math.floor(Math.random() * 100);
 
 		// Add the new vertices to each other's neighbour list
 		vtcs[verticeIndex].neighbours.push(vtcs[otherVertexIndex]);
