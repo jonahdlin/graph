@@ -73,3 +73,7 @@ function withinRange(one,two,range){
 	return Math.abs((one-two))<=range;
 }
 
+//returns the difference of two arrays
+function arrayDiff(one, two) {
+    return one.filter((i) => {return two.indexOf(i) < 0;});
+}
