@@ -19,7 +19,7 @@ var canvas, 			//canvas
 		y: -1
 	},
 	cProps = {
-		colour: "#EFEFEF"
+		colour: "#FFFFFF"
 	},
 	eProps = {			//edge properties
 		thickness: 2,
